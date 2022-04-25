@@ -1,8 +1,26 @@
-# Balancer Subgraph
+# <img src="logo.svg" alt="ApeSwap" height="160px">
+# ApeSwap Swap V2 Subgraph
 
 The graphql schema is still under heavy development and will likely have major breaking changes.
 
 This repo tracks both the subgraph and a docker configuration that allows you to run the subgraph and frontend against the core v2 contracts.
+
+## Pulling Upstream Changes
+Balancer V2 Subgraph is an actively maintained repository. The unaltered Balancer V2 code lives in the [balancer-v2](https://github.com/ApeSwapFinance/apeswap-swap-v2-subgraph/tree/balancer-v2) branch. To pull in new updates to that branch run the following: 
+
+```bash
+git checkout balancer-v2
+git fetch upstream
+git merge upstream/master
+```
+
+Now the new updates will be in the [balancer-v2](https://github.com/ApeSwapFinance/apeswap-swap-v2-subgraph/tree/balancer-v2) branch. These updates can then be merged into a feature branch off of `main` reconcile the updates.  
+
+```
+git checkout main
+git checkout -b feature/<feature-name>
+git merge balancer-v2
+```
 
 ## Setup
 
@@ -17,7 +35,7 @@ Clone the `pool-management-v2` repo and `core` repo submodules
 
 ### Recommended setup: Running V2 contracts, frontend and subgraph against development parity chain
 
-Docker compose can be started in various configurations to start a local etherem chain, a graph-node, and it's requisite services.
+Docker compose can be started in various configurations to start a local ethereum chain, a graph-node, and it's requisite services.
 
 Start a parity chain and a graph node by running
 ```
